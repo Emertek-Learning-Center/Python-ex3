@@ -1,6 +1,8 @@
 ########################################################
 #this exercice is detailed the usage of files in python#
 ########################################################
+
+#test if file main exist or not
 def createFileIsNotExist(filename):
     try:
        with open(filename, 'a+') as f:
@@ -13,16 +15,18 @@ def createFileIsNotExist(filename):
         f.close()
         print(f"create new file calld {filename}")
         return False
-    
+
+#insert string into file    
 def writeInFiles(ligne,filename):
     with open(filename, 'a+') as f:
         try:
             f.write(ligne)
             return True
         except:
+            f.close()
             return False
-    f.close()
 
+#show file content
 def showFilesContent(filename):
     with open(filename, 'r') as f:
         for ligne in f:
