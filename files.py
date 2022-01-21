@@ -6,21 +6,19 @@
 def createFileIsNotExist(filename):
     try:
        with open(filename, 'a+') as f:
-           pass
            f.close()
            print(f"{filename} is alredy exist")
-           return True
     except:
         f = open(filename, "w")
         f.close()
         print(f"create new file calld {filename}")
-        return False
 
 #insert string into file    
 def writeInFiles(ligne,filename):
     with open(filename, 'a+') as f:
         try:
             f.write(ligne)
+            f.close()
             return True
         except:
             f.close()
@@ -45,7 +43,7 @@ if __name__ == '__main__':
         if writeInFiles(string,filename):
             print("Record add succesfully.")
         else:
-            print("error in writing files.")
+            print("error when writing in file.")
         print("Did you want to add annother record (Y/N): ")
         rep = input()
         if rep.lower() =='n':
